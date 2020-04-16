@@ -1,11 +1,9 @@
 {
   "expo": {
     "name": "myTriviaApp",
-    "slug": "myTriviaApp",
+    "slug": "DKTriviaApp",
     "platforms": [
-      "ios",
-      "android",
-      "web"
+      "ios"
     ],
     "version": "1.0.0",
     "orientation": "portrait",
@@ -22,6 +20,7 @@
       "**/*"
     ],
     "ios": {
+      "bundleIdentifier": "DK-crazy-cat-trivia",
       "supportsTablet": true
     }
   }

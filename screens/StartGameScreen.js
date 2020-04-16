@@ -1,12 +1,13 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button,TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Button,TouchableOpacity, Image } from 'react-native';
 
 const StartGameScreen = props => {
-    let startGameBoolean = "true";
+    // let startGameBoolean = "true";
     return (
         <View style={styles.screen}>
-            <Text style={styles.title}>Welcome to Historian's Trivia!</Text>
-            <TouchableOpacity style={styles.button} onPress={() => props.onStartGame(startGameBoolean)}>
+            <Text style={styles.title}>Welcome to Trivia!</Text>
+            <Image style={styles.smudge} source={{uri:"https://i1.wp.com/freepngimages.com/wp-content/uploads/2016/12/ginger-cat-lazing.png?fit=616%2C650"}}/>
+            <TouchableOpacity style={styles.button} onPress={() => props.onStartGame()}>
                 <Text style={styles.buttonFont}>New Game</Text>
             </TouchableOpacity>
         </View>
@@ -16,36 +17,36 @@ const StartGameScreen = props => {
 const styles = StyleSheet.create({
     screen: {
         flex: 1,
-        backgroundColor: 'purple',
+        backgroundColor: 'mintcream',
         padding: 10,
         alignItems: 'center',
     }, 
     title: {
-        color: "white",
+        color: "midnightblue",
         fontSize: 40,
         textAlign: 'center',
         paddingTop: 100,
-        paddingBottom: 50,
+        paddingBottom: 10,
     },
-    // container: {
-    //     flexDirection: 'row',
-    //     justifyContent: 'space-between',
-    //     paddingHorizontal: 15,
-    // },
     button: {
-        borderRadius: 25,
-        backgroundColor: 'pink',
-        padding: 10,
-        width: 100,
+        borderRadius: 15,
+        backgroundColor: 'hotpink',
         alignItems: 'center',
+        paddingVertical: 20,
+        paddingHorizontal: 30,
         shadowColor: 'black',
         shadowOffset: {width: 0, height: 2},
         shadowRadius: 6,
         shadowOpacity: .36,
     },
     buttonFont: {
-        color: 'black',
+        color: 'white',
         fontWeight: 'bold',
+        fontSize: 16,
+    },
+    smudge: {
+        width: 200,
+        height: 200,
     }
 })
 
