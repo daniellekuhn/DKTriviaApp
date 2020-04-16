@@ -6,7 +6,7 @@ const Category = props => {
     return (
         <View style={styles.screen}>
             <TouchableOpacity style={styles.buttonContainer} onPress={()=> props.onCategorySelection(historySelect)} >
-                <Text>History</Text>
+                <Text>Geography</Text>
             </TouchableOpacity>
         </View>
     )
