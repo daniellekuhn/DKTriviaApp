@@ -18,6 +18,8 @@
     "react-dom": "~16.9.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-37.0.1.tar.gz",
     "react-native-button": "^3.0.1",
+    "react-native-leaderboard": "^1.0.6",
+    "react-native-table-component": "^1.2.1",
     "react-native-web": "~0.11.7",
     "redux-thunk": "^2.3.0"
   },

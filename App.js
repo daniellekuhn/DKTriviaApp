@@ -5,6 +5,7 @@ import StartGameScreen from './screens/StartGameScreen';
 import Category from './screens/Category';
 import Geography from './screens/Geography';
 import Computers from './screens/Computers';
+import Scoreboard from './screens/Scoreboard';
 
 class App extends Component {
   constructor() {
@@ -15,6 +16,8 @@ class App extends Component {
       computersSelect: "false",
       startNewGame: "false",
       randomQuestionsNumsArray: [],
+      username: "anonymous",
+      scoreboardSelect: "false",
     }
   }
 
@@ -24,6 +27,7 @@ class App extends Component {
       startNewGame: "false"
     })
   }
+
   selectCategoryHandler(selection){
     function shuffle(array) {
       var currentIndex = array.length, temporaryValue, randomIndex;
@@ -40,7 +44,6 @@ class App extends Component {
           array[currentIndex] = array[randomIndex];
           array[randomIndex] = temporaryValue;
       }
-      
       return array;
     }
     //generate 10 random question id's for database get request
@@ -56,7 +59,6 @@ class App extends Component {
   })
   if (selection === "Geography") {this.setState({geographySelect: "true"})}
   if (selection === "Computers") {this.setState({computersSelect: "true"})}
-
   }
 
   startNewGame(){
@@ -64,25 +66,38 @@ class App extends Component {
       geographySelect: "false",
       computersSelect: "false",
       startNewGame: "true",
+      scoreboardSelect: "false"
     })
   }
-  
+  inputUsername(username){
+    this.setState({
+      username: username,
+    })
+  }
+  showScoreboard(){
+    this.setState({
+      scoreboardSelect: "true"
+    })
+  }
+
   render() {
-    let content = <StartGameScreen onStartGame={this.startGameHandler.bind(this)}/>;
+    let content = <StartGameScreen inputUsername={this.inputUsername.bind(this)} onStartGame={this.startGameHandler.bind(this)} onScoreboard={this.showScoreboard.bind(this)}/>;
     
     if (this.state.startGame === "true") {
       content = <Category onCategorySelection={this.selectCategoryHandler.bind(this)}/>
     } 
     if (this.state.geographySelect === "true") {
-      content = <Geography onStartNewGame={this.startNewGame.bind(this)} randomQuestionsNumsArray={this.state.randomQuestionsNumsArray}/>
+      content = <Geography username={this.state.username} onStartNewGame={this.startNewGame.bind(this)} randomQuestionsNumsArray={this.state.randomQuestionsNumsArray}/>
     }
     if (this.state.computersSelect === "true") {
-      content = <Computers onStartNewGame={this.startNewGame.bind(this)} randomQuestionsNumsArray={this.state.randomQuestionsNumsArray}/>
+      content = <Computers username={this.state.username} onStartNewGame={this.startNewGame.bind(this)} randomQuestionsNumsArray={this.state.randomQuestionsNumsArray}/>
     }
     if (this.state.startNewGame === "true") {
-      content = <StartGameScreen onStartGame={this.startGameHandler.bind(this)}/>;
+      content = <StartGameScreen inputUsername={this.inputUsername.bind(this)} onStartGame={this.startGameHandler.bind(this)} onScoreboard={this.showScoreboard.bind(this)}/>;
     }
-
+    if (this.state.scoreboardSelect === "true") {
+      content = <Scoreboard onStartNewGame={this.startNewGame.bind(this)}/>
+    }
   return (
     <View style={styles.container}>
       <Header/>

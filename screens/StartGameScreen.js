@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button,TouchableOpacity, Image } from 'react-native';
+import { View, Text, StyleSheet,TouchableOpacity, Image, TextInput } from 'react-native';
 
 const StartGameScreen = props => {
     // let startGameBoolean = "true";
@@ -7,8 +7,13 @@ const StartGameScreen = props => {
         <View style={styles.screen}>
             <Text style={styles.title}>Welcome to Trivia!</Text>
             <Image style={styles.smudge} source={{uri:"https://i1.wp.com/freepngimages.com/wp-content/uploads/2016/12/ginger-cat-lazing.png?fit=616%2C650"}}/>
+            <Text>Enter player name here:</Text>
+            <TextInput style={styles.inputBox} onChangeText={(text)=> props.inputUsername(text)}/>
             <TouchableOpacity style={styles.button} onPress={() => props.onStartGame()}>
-                <Text style={styles.buttonFont}>New Game</Text>
+                <Text style={styles.buttonFont}>Ready to Play</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.scoreboard} onPress={() => props.onScoreboard()}>
+                <Text style={styles.scoreboardText}>Scoreboard</Text>
             </TouchableOpacity>
         </View>
     )
@@ -21,6 +26,16 @@ const styles = StyleSheet.create({
         padding: 10,
         alignItems: 'center',
     }, 
+    inputBox: {
+        width: 50,
+        backgroundColor: 'white',
+        borderColor: 'gray',
+        borderWidth: 1,
+        height: 25,
+        width: 150,
+        marginBottom: 20,
+        marginTop: 10,
+    },
     title: {
         color: "midnightblue",
         fontSize: 40,
@@ -32,8 +47,8 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         backgroundColor: 'hotpink',
         alignItems: 'center',
-        paddingVertical: 20,
-        paddingHorizontal: 30,
+        paddingVertical: 15,
+        paddingHorizontal: 20,
         shadowColor: 'black',
         shadowOffset: {width: 0, height: 2},
         shadowRadius: 6,
@@ -47,6 +62,20 @@ const styles = StyleSheet.create({
     smudge: {
         width: 200,
         height: 200,
+    },
+    scoreboard: {
+        marginTop: 10,
+        backgroundColor: 'midnightblue',
+        paddingVertical: 5,
+        paddingHorizontal: 10,
+        shadowColor: 'black',
+        shadowOffset: {width: 0, height: 2},
+        shadowRadius: 6,
+        shadowOpacity: .36,
+    },
+    scoreboardText: {
+        fontSize: 12,
+        color: "white",
     }
 })
 

@@ -97,6 +97,26 @@ class Computers extends Component {
             disableAnswers: true,
         })
     }
+    
+    submitScore(){
+        const options = {
+            url: `https://dk-trivia-game.firebaseio.com/scores.json`,
+            method: 'POST',
+            data: {
+                username: this.props.username,
+                score: this.state.correctScore,
+                category: "Computers"
+            }
+        }
+        axios(options)
+        .then(data => {
+            console.log("ok")
+        })
+        .catch( error => {
+            console.log(error)
+        }) 
+        this.props.onStartNewGame()
+    }
 
     render() {
         //show question number once you start the game
@@ -109,11 +129,7 @@ class Computers extends Component {
         const tag2 = <Button color="midnightblue" disabled={this.state.disableAnswers ? true : false} title={this.state.incorrectAnswer1} onPress={()=> this.incorrectAnswerSelected()} style={styles.answer}/>
         const tag3 = <Button color="midnightblue" disabled={this.state.disableAnswers ? true : false} title={this.state.incorrectAnswer2} onPress={()=> this.incorrectAnswerSelected()} style={styles.answer}/>
         const tag4 = <Button color="midnightblue" disabled={this.state.disableAnswers ? true : false} title={this.state.incorrectAnswer3} onPress={()=> this.incorrectAnswerSelected()} style={styles.answer}/>
-        const tagRandomOrderArray = [];
-        tagRandomOrderArray.push(tag1)
-        tagRandomOrderArray.push(tag2)
-        tagRandomOrderArray.push(tag3)
-        tagRandomOrderArray.push(tag4)
+        const tagRandomOrderArray = [tag1,tag2,tag3,tag4];
         const reactTag1 = tagRandomOrderArray[this.state.randomPosition1-1];
         const reactTag2 = tagRandomOrderArray[this.state.randomPosition2-1];
         const reactTag3 = tagRandomOrderArray[this.state.randomPosition3-1];
@@ -122,7 +138,7 @@ class Computers extends Component {
         //only render next question button when question is less than 10
         let nextQuestionTag = <TouchableOpacity><Text style={styles.nextQuestion} onPress={()=> this.fetchQuestions()}>Next Question</Text></TouchableOpacity>
         if (this.state.questionNumber === 10) {
-            nextQuestionTag = <TouchableOpacity><Text style={styles.nextQuestion} onPress={()=> this.props.onStartNewGame()}>Start New Game!</Text></TouchableOpacity>
+            nextQuestionTag = <TouchableOpacity><Text style={styles.nextQuestion} onPress={()=> this.submitScore()}>Start New Game!</Text></TouchableOpacity>
         }
 
         return(
@@ -144,10 +160,10 @@ class Computers extends Component {
                 {nextQuestionTag}
             </View>
             <Text style={styles.correctOrIncorrect}>{this.state.correctOrIncorrect}</Text>
-                <Text style={styles.correctAnswerText}>{this.state.disableAnswers ? "Correct Answer: ": ""}
+            <Text style={styles.correctAnswerText}>{this.state.disableAnswers ? "Correct Answer: ": ""}
                 <Text style={styles.correctAnswerText}>{this.state.disableAnswers ? this.state.correctAnswer : ""}</Text>
             </Text>
-            <Image style={styles.image} source={{uri:'https://www.pngkey.com/png/detail/55-553923_banner-free-stock-free-computers-cliparts-computer-clipart.png'}}/>
+            <Image style={styles.image} source={{uri:'https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'}}/>
             <TouchableOpacity>
                 <Text style={styles.leaveGame} onPress={()=> this.props.onStartNewGame()}>leave game</Text>
             </TouchableOpacity>
@@ -204,8 +220,8 @@ const styles = StyleSheet.create({
         paddingTop: 10,
     },
     correctOrIncorrect: {
-        marginTop: 20,
-        fontSize: 20,
+        marginTop: 5,
+        fontSize: 16,
         fontWeight: "bold",
     }, 
     scoreContainer: {
@@ -226,7 +242,7 @@ const styles = StyleSheet.create({
         padding: 10
     },
     correctAnswerText: {
-        marginTop: 10,
+        marginTop: 1,
     },
     leaveGame: {
         marginTop: 10,

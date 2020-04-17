@@ -98,6 +98,26 @@ class Geography extends Component {
         })
     }
 
+    submitScore(){
+        const options = {
+            url: `https://dk-trivia-app2.firebaseio.com/scores.json`,
+            method: 'POST',
+            data: {
+                username: this.props.username,
+                score: this.state.correctScore,
+                category: "Geography"
+            }
+        }
+        axios(options)
+        .then(data => {
+            console.log("ok")
+        })
+        .catch( error => {
+            console.log(error)
+        }) 
+        this.props.onStartNewGame()
+    }
+
     render() {
         //show question number once you start the game
         let showQuestionTag = <Text style={styles.questionHeader}>Get Ready!</Text>
@@ -109,11 +129,7 @@ class Geography extends Component {
         const tag2 = <Button color="midnightblue" disabled={this.state.disableAnswers ? true : false} title={this.state.incorrectAnswer1} onPress={()=> this.incorrectAnswerSelected()} style={styles.answer}/>
         const tag3 = <Button color="midnightblue" disabled={this.state.disableAnswers ? true : false} title={this.state.incorrectAnswer2} onPress={()=> this.incorrectAnswerSelected()} style={styles.answer}/>
         const tag4 = <Button color="midnightblue" disabled={this.state.disableAnswers ? true : false} title={this.state.incorrectAnswer3} onPress={()=> this.incorrectAnswerSelected()} style={styles.answer}/>
-        const tagRandomOrderArray = [];
-        tagRandomOrderArray.push(tag1)
-        tagRandomOrderArray.push(tag2)
-        tagRandomOrderArray.push(tag3)
-        tagRandomOrderArray.push(tag4)
+        const tagRandomOrderArray = [tag1,tag2,tag3,tag4];
         const reactTag1 = tagRandomOrderArray[this.state.randomPosition1-1];
         const reactTag2 = tagRandomOrderArray[this.state.randomPosition2-1];
         const reactTag3 = tagRandomOrderArray[this.state.randomPosition3-1];
@@ -122,7 +138,7 @@ class Geography extends Component {
         //only render next question button when question is less than 10
         let nextQuestionTag = <TouchableOpacity><Text style={styles.nextQuestion} onPress={()=> this.fetchQuestions()}>Next Question</Text></TouchableOpacity>
         if (this.state.questionNumber === 10) {
-            nextQuestionTag = <TouchableOpacity><Text style={styles.nextQuestion} onPress={()=> this.props.onStartNewGame()}>Start New Game!</Text></TouchableOpacity>
+            nextQuestionTag = <TouchableOpacity><Text style={styles.nextQuestion} onPress={()=> this.submitScore()}>Start New Game!</Text></TouchableOpacity>
         }
 
         return(

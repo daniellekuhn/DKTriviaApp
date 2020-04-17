@@ -13,7 +13,7 @@ const Category = props => {
             </TouchableOpacity>
             <TouchableOpacity style={styles.buttonContainer2} onPress={()=> props.onCategorySelection(computersSelected)} >
                 <Text style={styles.categoryText}>Computers</Text>
-                <Image style={styles.image} source={{uri:'https://www.pngkey.com/png/detail/55-553923_banner-free-stock-free-computers-cliparts-computer-clipart.png'}}/>
+                <Image style={styles.image} source={{uri:'https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'}}/>
             </TouchableOpacity>
         </View>
     )
