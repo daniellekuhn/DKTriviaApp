@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, Button, StyleSheet, Image} from 'react-native';
+import { View, Text, Button, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import axios from 'axios';
-import Category from './Category'
 
-class PlayGame extends Component {
+class Geography extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -121,9 +120,9 @@ class PlayGame extends Component {
         const reactTag4 = tagRandomOrderArray[this.state.randomPosition4-1];
 
         //only render next question button when question is less than 10
-        let nextQuestionTag = <Button color="white" title="Next Question" onPress={()=> this.fetchQuestions()}/>
+        let nextQuestionTag = <TouchableOpacity><Text style={styles.nextQuestion} onPress={()=> this.fetchQuestions()}>Next Question</Text></TouchableOpacity>
         if (this.state.questionNumber === 10) {
-            nextQuestionTag = <Button color="white" title="Start New Game!" onPress={()=> this.props.onStartNewGame()}/>
+            nextQuestionTag = <TouchableOpacity><Text style={styles.nextQuestion} onPress={()=> this.props.onStartNewGame()}>Start New Game!</Text></TouchableOpacity>
         }
 
         return(
@@ -145,10 +144,13 @@ class PlayGame extends Component {
                 {nextQuestionTag}
             </View>
             <Text style={styles.correctOrIncorrect}>{this.state.correctOrIncorrect}</Text>
-            <Text style={styles.correctAnswerText}>{this.state.disableAnswers ? "Correct Answer: ": ""}
-            <Text style={styles.correctAnswerText}>{this.state.disableAnswers ? this.state.correctAnswer : ""}</Text>
+                <Text style={styles.correctAnswerText}>{this.state.disableAnswers ? "Correct Answer: ": ""}
+                <Text style={styles.correctAnswerText}>{this.state.disableAnswers ? this.state.correctAnswer : ""}</Text>
             </Text>
-            <Image style={styles.image} source={{uri:'https://i.dlpng.com/static/png/6429774_preview.png'}}/>
+            <Image style={styles.image} source={{uri:'https://lh3.googleusercontent.com/proxy/q9--T4IUPxliudHG4nFVjVvu2eN1JOIiX_R0cHl2aZ_y8s20PAaeO-GwdfsYoWcRQ40lMFF_B2axTn2RJRm6Xu0GLSdSrpomDS02vA'}}/>
+            <TouchableOpacity>
+                <Text style={styles.leaveGame} onPress={()=> this.props.onStartNewGame()}>leave game</Text>
+            </TouchableOpacity>
         </View>
         )
     }
@@ -195,8 +197,8 @@ const styles = StyleSheet.create({
         fontSize: 18,
     },
     image: {
-        width: 250,
-        height: 250,
+        width: 200,
+        height: 200,
     },
     answer: {
         paddingTop: 10,
@@ -221,11 +223,21 @@ const styles = StyleSheet.create({
         marginTop: 10,
         backgroundColor: "hotpink",
         borderRadius: 10,
+        padding: 10,
     },
     correctAnswerText: {
         marginTop: 10,
+    },
+    leaveGame: {
+        marginTop: 10,
+        color: 'black',
+        fontSize: 10,
+        textDecorationLine: 'underline'
+    },
+    nextQuestion: {
+        color: 'white'
     }
 })
 
-export default PlayGame;
+export default Geography;
 

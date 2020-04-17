@@ -3,7 +3,8 @@ import { StyleSheet, View } from 'react-native';
 import Header from './components/Header'
 import StartGameScreen from './screens/StartGameScreen';
 import Category from './screens/Category';
-import PlayGame from './screens/PlayGame'
+import Geography from './screens/Geography';
+import Computers from './screens/Computers';
 
 class App extends Component {
   constructor() {
@@ -11,8 +12,9 @@ class App extends Component {
     this.state = {
       startGame: "false",
       geographySelect: "false",
+      computersSelect: "false",
       startNewGame: "false",
-      randomQuestionsNumsArray: []
+      randomQuestionsNumsArray: [],
     }
   }
 
@@ -22,7 +24,7 @@ class App extends Component {
       startNewGame: "false"
     })
   }
-  selectCategoryHandler(){
+  selectCategoryHandler(selection){
     function shuffle(array) {
       var currentIndex = array.length, temporaryValue, randomIndex;
       
@@ -50,14 +52,17 @@ class App extends Component {
 
   this.setState({
     startGame: "false",
-    selectCategory: "true",
     randomQuestionsNumsArray: randomQuestionOrder10,
   })
+  if (selection === "Geography") {this.setState({geographySelect: "true"})}
+  if (selection === "Computers") {this.setState({computersSelect: "true"})}
+
   }
 
   startNewGame(){
     this.setState({
-      selectCategory: "false",
+      geographySelect: "false",
+      computersSelect: "false",
       startNewGame: "true",
     })
   }
@@ -68,8 +73,11 @@ class App extends Component {
     if (this.state.startGame === "true") {
       content = <Category onCategorySelection={this.selectCategoryHandler.bind(this)}/>
     } 
-    if (this.state.selectCategory === "true") {
-      content = <PlayGame onStartNewGame={this.startNewGame.bind(this)} randomQuestionsNumsArray={this.state.randomQuestionsNumsArray}/>
+    if (this.state.geographySelect === "true") {
+      content = <Geography onStartNewGame={this.startNewGame.bind(this)} randomQuestionsNumsArray={this.state.randomQuestionsNumsArray}/>
+    }
+    if (this.state.computersSelect === "true") {
+      content = <Computers onStartNewGame={this.startNewGame.bind(this)} randomQuestionsNumsArray={this.state.randomQuestionsNumsArray}/>
     }
     if (this.state.startNewGame === "true") {
       content = <StartGameScreen onStartGame={this.startGameHandler.bind(this)}/>;
