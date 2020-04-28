@@ -9,11 +9,11 @@ const Category = props => {
         <View style={styles.screen}>
             <TouchableOpacity style={styles.buttonContainer} onPress={()=> props.onCategorySelection(geographySelected)} >
                 <Text style={styles.categoryText}>Geography</Text>
-                <Image style={styles.image} source={{uri:'https://lh3.googleusercontent.com/proxy/q9--T4IUPxliudHG4nFVjVvu2eN1JOIiX_R0cHl2aZ_y8s20PAaeO-GwdfsYoWcRQ40lMFF_B2axTn2RJRm6Xu0GLSdSrpomDS02vA'}}/>
+                <Image style={styles.image} source={{uri:'https://images.unsplash.com/photo-1519500099198-fd81846b8f03?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'}}/>
             </TouchableOpacity>
             <TouchableOpacity style={styles.buttonContainer2} onPress={()=> props.onCategorySelection(computersSelected)} >
                 <Text style={styles.categoryText}>Computers</Text>
-                <Image style={styles.image} source={{uri:'https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'}}/>
+                <Image style={styles.image} source={{uri:'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'}}/>
             </TouchableOpacity>
         </View>
     )

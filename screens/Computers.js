@@ -163,7 +163,7 @@ class Computers extends Component {
             <Text style={styles.correctAnswerText}>{this.state.disableAnswers ? "Correct Answer: ": ""}
                 <Text style={styles.correctAnswerText}>{this.state.disableAnswers ? this.state.correctAnswer : ""}</Text>
             </Text>
-            <Image style={styles.image} source={{uri:'https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'}}/>
+            <Image style={styles.image} source={{uri:'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'}}/>
             <TouchableOpacity>
                 <Text style={styles.leaveGame} onPress={()=> this.props.onStartNewGame()}>leave game</Text>
             </TouchableOpacity>

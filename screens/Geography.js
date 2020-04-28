@@ -163,7 +163,7 @@ class Geography extends Component {
                 <Text style={styles.correctAnswerText}>{this.state.disableAnswers ? "Correct Answer: ": ""}
                 <Text style={styles.correctAnswerText}>{this.state.disableAnswers ? this.state.correctAnswer : ""}</Text>
             </Text>
-            <Image style={styles.image} source={{uri:'https://lh3.googleusercontent.com/proxy/q9--T4IUPxliudHG4nFVjVvu2eN1JOIiX_R0cHl2aZ_y8s20PAaeO-GwdfsYoWcRQ40lMFF_B2axTn2RJRm6Xu0GLSdSrpomDS02vA'}}/>
+            <Image style={styles.image} source={{uri:'https://images.unsplash.com/photo-1519500099198-fd81846b8f03?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'}}/>
             <TouchableOpacity>
                 <Text style={styles.leaveGame} onPress={()=> this.props.onStartNewGame()}>leave game</Text>
             </TouchableOpacity>
