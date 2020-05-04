@@ -5,7 +5,7 @@ Current trivia questions include multiple-choice Geography and Computer question
 
 # Demo
 
-![](https://thumbs.gfycat.com/WhoppingLightIrishterrier-size_restricted.gif)
+<img src="https://thumbs.gfycat.com/WhoppingLightIrishterrier-size_restricted.gif" height=400px>
 
 # User Stories
 I implemented the following user stories:
