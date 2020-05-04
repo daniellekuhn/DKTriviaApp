@@ -38,7 +38,7 @@ I used the following tech stack to build my application:
 I also used axios to get trivia questions from a public trivia API (https://opentdb.com).
 
 # Getting Started
-From terminal in the repository:
+To run the app from your localhost, type the following into the repository's terminal:
 ```
 expo start
 ```
