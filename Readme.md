@@ -21,20 +21,21 @@ I implemented the following user stories:
 - As a user, I want to be able to view the scoreboard
 
 # Stack
+I used the following tech stack to build my application:
 <table>
   <tr>
   </tr>
   <tr>
     <td align="center">Front-end</td>
     <td align="center">Back-end</td>
-    <td align="center">RESTful API's</td>
   </tr>
   <tr>
     <td align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1280px-React-icon.svg.png" alt="React" title="React" width="80px"/></td>
-    <td align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1280px-Node.js_logo.svg.png" alt="Node.js" title="Node.js" width="60px"/></td>
     <td align="center"><img src="https://firebase.google.com/images/brand-guidelines/logo-built_white.png" alt="Firebase" title="Firebase" width="80px"/></td>
   </tr>
 </table>
+
+I also used axios to get trivia questions from a public trivia API (https://opentdb.com).
 
 # Getting Started
 From terminal in the repository:
