@@ -47,14 +47,15 @@ expo start
   <tr>
   </tr>
   <tr>
+    <td align="center">Pixel XL</td>
     <td align="center">iPad (7th generation)</td>
     <td align="center">iPhone (11 Pro Max)</td>
     <td align="center">Web Browser</td>
   </tr>
   <tr>
+    <td align="center"><img src="https://imgur.com/P6ZcmsY.png" height="200px"/></td>
     <td align="center"><img src="https://i.imgur.com/gr452rg.png" height="200px"/></td>
     <td align="center"><img src="https://i.imgur.com/701meiN.png" height="200px"/></td>
     <td align="center"><img src="https://i.imgur.com/sva3Mq5.png" height="200px"/></td>
-
   </tr>
 </table>
