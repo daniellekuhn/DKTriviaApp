@@ -1,5 +1,5 @@
 # Welcome to Danielle's Trivia App! <img src="https://i1.wp.com/freepngimages.com/wp-content/uploads/2016/12/ginger-cat-lazing.png?fit=616%2C650" width="80px">
-I built a full-stack trivia application, compatible with iOS, Android, and web browser for friends and family to play while in quarantine! I used React Native for the frontend and Firebase for the backend. 
+I independently built a full-stack trivia application, compatible with iOS, Android, and web browser for friends and family to play while in quarantine! I used React Native for the frontend and Firebase for the backend. 
 
 Current trivia questions include multiple-choice Geography and Computer questions!
 
